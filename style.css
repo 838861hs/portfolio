@@ -36,7 +36,8 @@ body{
   transition: 2s;
   transform: translate(0px, -20px);
 }
-.over_wrap .center_mk.fade_in{
+
+.over_wrap .center_mk.fade_in,.skill.fade_in{
   transform: translate(0px, 0px);
   opacity: 1;
 }
@@ -129,7 +130,9 @@ section#about .text_box > p:last-child{
 section#about .text_box .photo_box{
   width: 50%;
 }
-
+.photo_box{
+ overflow: hidden;
+}
 .sec_box{
   margin-left: 75px;
   padding: 50px 0;
@@ -142,7 +145,7 @@ section#about .text_box .photo_box{
   margin: 0 auto;
   flex-wrap: wrap;
 }
-.box_wrap .skill{
+.skill{
   border: 1px solid #000;
   width: 280px;
   text-align: center;
@@ -150,6 +153,10 @@ section#about .text_box .photo_box{
   box-sizing: border-box;
   font-size: 14px;
   margin-bottom: 30px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translate(0px, -20px);
+  transition: 2s;
 }
 .box_wrap .skill img{
   display: block;
@@ -308,6 +315,12 @@ footer {
     margin: 0;
     padding: 90px 40px 70px;
   }
+  section#about .text_box{
+    width: 100%;
+  }
+  section#about .text_box h2{
+    text-align: center;
+  }
   .var_hd{
     width: 100%;
     height: 75px;
@@ -326,12 +339,52 @@ footer {
     right: -20px;
     transition: .5s;
   }
-  section#about .text_box{
-    width: 100%;
-    margin-top: 30px;
-    margin-right: 0;
-  }
-  
 }
 
 
+/* mask */
+.img_mask{
+  overflow: hidden;
+  opacity: 0;
+}
+
+.isPlay {
+  animation-name: play;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(.8,0,.5,1);
+  position: relative;
+  opacity: 1 !important;
+}
+.isPlay:before {
+  animation-name: maskOut;
+  animation-duration: .5s;
+  animation-delay: .5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(.8,0,.5,1);
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+  @keyframes play {
+    from {
+      transform: translateX(-100%);
+    }
+    
+    to {
+      transform: translateX(0);
+    }
+  }
+@keyframes maskOut {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
