@@ -123,10 +123,9 @@ window.onscroll = function () {
 /*---------------------------/
  /  load function
 /---------------------------*/
-window.onload = function () {
+window.onload = ()=> {
   fade_in(open_cover,2000);
   setTimeout(img_mask, 3000);
   device_disc();
 };
-
 
