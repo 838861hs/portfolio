@@ -1,0 +1,8 @@
+{
+  "name": "portfolio",
+  "dependencies": {
+    "babel": "^6.23.0",
+    "sass": "^1.35.1",
+    "webpack": "^5.42.1"
+  }
+}
